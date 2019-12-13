@@ -1,6 +1,6 @@
 # AWS Client VPN Terraform module
 
-Terraform module which creates a Client VPN endpoint on AWS. This module can be used to quickly create a VPN connection to new and existing VPC's without the use of a VPN instance or a bastion host. 
+Terraform module which creates a Client VPN endpoint on AWS. This module can be used to quickly create a VPN connection to new and existing VPC's without the use of a VPN instance.
 
 By using self-signed certificates in AWS Systems Manager Parameter Store and a custom subdomain, you can create and destroy Client VPN endpoints while reusing the same `*.ovpn` configuration. This way you can create a Client VPN endpoint only when needed and reduce [costs](https://aws.amazon.com/vpn/pricing/). 
 
