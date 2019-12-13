@@ -6,7 +6,7 @@ By using self-signed certificates in AWS Systems Manager Parameter Store and a c
 
 ## Terraform versions
 
-Only Terraform 0.12 is supported
+Only Terraform 0.12 is supported.
 
 ## Usage
 
@@ -34,7 +34,7 @@ This is the minimum configuration needed to create an AWS Client VPN endpoint.
 
 ```hcl
 module "clientvpn" {
-  source = "terraform-aws-client-vpn-endpoint"
+  source = "git::https://github.com/jansonjustin/aws-client-vpn-endpoint.git"
 
   subnet_id = <SUBNET_ID>
 }
@@ -44,7 +44,7 @@ You can also add your own subdomain which you can use in the `*.ovpn` configurat
 
 ```hcl
 module "clientvpn" {
-  source = "terraform-aws-client-vpn-endpoint"
+  source = "git::https://github.com/jansonjustin/aws-client-vpn-endpoint.git"
 
   subnet_id = <SUBNET_ID>
   zone_id   = <ZONE_ID>
