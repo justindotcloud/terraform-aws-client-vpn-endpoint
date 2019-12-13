@@ -52,7 +52,7 @@ module "clientvpn" {
 }
 ```
 
-### Inputs
+#### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
