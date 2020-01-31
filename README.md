@@ -34,7 +34,7 @@ This is the minimum configuration needed to create an AWS Client VPN endpoint.
 
 ```hcl
 module "clientvpn" {
-  source = "git::https://github.com/jansonjustin/aws-client-vpn-endpoint.git"
+  source = "git::https://github.com/justindotcloud/aws-client-vpn-endpoint.git"
 
   subnet_id = <SUBNET_ID>
 }
@@ -44,7 +44,7 @@ You can also add your own subdomain which you can use in the `*.ovpn` configurat
 
 ```hcl
 module "clientvpn" {
-  source = "git::https://github.com/jansonjustin/aws-client-vpn-endpoint.git"
+  source = "git::https://github.com/justindotcloud/aws-client-vpn-endpoint.git"
 
   subnet_id = <SUBNET_ID>
   zone_id   = <ZONE_ID>
@@ -92,4 +92,4 @@ Add the `*.ovpn` configuration file to your prefered client and connect to VPN.
 
 ## Authors
 
-Module managed by [Justin Janson](https://github.com/jansonjustin)
+Module managed by [Justin Janson](https://github.com/justindotcloud)
