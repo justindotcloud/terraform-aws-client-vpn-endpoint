@@ -6,7 +6,7 @@ By using self-signed certificates in AWS Systems Manager Parameter Store and a c
 
 ## Terraform versions
 
-Only Terraform 0.12 is supported.
+Tested with Terraform v0.12.20.
 
 ## Usage
 
@@ -36,7 +36,7 @@ This is the minimum configuration needed to create an AWS Client VPN endpoint.
 module "clientvpn" {
   source = "git::https://github.com/justindotcloud/aws-client-vpn-endpoint.git"
 
-  subnet_id = <SUBNET_ID>
+  subnet_id = SUBNET_ID
 }
 ```
 
@@ -46,8 +46,8 @@ You can also add your own subdomain which you can use in the `*.ovpn` configurat
 module "clientvpn" {
   source = "git::https://github.com/justindotcloud/aws-client-vpn-endpoint.git"
 
-  subnet_id = <SUBNET_ID>
-  zone_id   = <ZONE_ID>
+  subnet_id = SUBNET_ID
+  zone_id   = ZONE_ID
   dns_name  = vpn.example.com
 }
 ```
@@ -77,8 +77,8 @@ module "clientvpn" {
 Download the AWS Client VPN configuration via the AWS Console and add the following two lines of code:
 
 ```
-cert /path/to/client.crt
-key /path/to/client.key
+cert /PATH/TO/client.crt
+key /PATH/TO/client.key
 ```
 
 Optionally modify the DNS endpoint if you added your own subdomain.
