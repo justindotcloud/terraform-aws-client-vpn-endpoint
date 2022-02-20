@@ -33,7 +33,7 @@ $ aws ssm put-parameter --name /clientvpn/certificates/ca.crt --type String --va
 This is the minimum configuration needed to create an AWS Client VPN endpoint.
 
 ```hcl
-module "clientvpn" {
+module "client-vpn-endpoint" {
   source  = "justindotcloud/client-vpn-endpoint/aws"
   version = "x.x.x"
 
