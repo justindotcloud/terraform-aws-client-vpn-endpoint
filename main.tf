@@ -26,6 +26,10 @@ resource "aws_ec2_client_vpn_authorization_rule" "client_vpn" {
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.client_vpn.id
   target_network_cidr    = var.client_vpn_ingress_cidr_block
   authorize_all_groups   = true
+
+  timeouts {
+    create = "15m"
+  }
 }
 
 resource "aws_ec2_client_vpn_route" "client_vpn" {
@@ -33,5 +37,7 @@ resource "aws_ec2_client_vpn_route" "client_vpn" {
   destination_cidr_block = var.client_vpn_route_internet_cidr_block
   target_vpc_subnet_id   = var.subnet_id
 
-  depends_on = [aws_ec2_client_vpn_network_association.client_vpn]
+  timeouts {
+    create = "15m"
+  }
 }

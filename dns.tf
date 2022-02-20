@@ -1,4 +1,4 @@
-resource "aws_route53_record" "clientvpn" {
+resource "aws_route53_record" "client_vpn" {
   count = var.zone_id != "" && var.dns_name != "" ? 1 : 0
 
   zone_id = var.zone_id 
