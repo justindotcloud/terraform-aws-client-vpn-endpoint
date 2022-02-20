@@ -1,12 +1,12 @@
-# AWS Client VPN Terraform module
+# Terraform AWS Client VPN Endpoint module
 
-Terraform module which creates a Client VPN endpoint on AWS. This module can be used to quickly create a VPN connection to new and existing VPC's without the use of a VPN instance.
+Terraform module which creates a Client VPN Endpoint on AWS. This module can be used to quickly create a VPN connection to new and existing VPC's without the use of a VPN instance.
 
-By using self-signed certificates in AWS Systems Manager Parameter Store and a custom subdomain, you can create and destroy Client VPN endpoints while reusing the same `*.ovpn` configuration. This way you can create a Client VPN endpoint only when needed and reduce [costs](https://aws.amazon.com/vpn/pricing/). 
+By using self-signed certificates in AWS Systems Manager Parameter Store and a custom subdomain, you can easily create and destroy Client VPN endpoints while reusing the same `*.ovpn` configuration. This way you can create a Client VPN Endpoint only when needed and reduce [costs](https://aws.amazon.com/vpn/pricing/). 
 
 ## Terraform versions
 
-Tested with Terraform v0.12.20.
+Tested with Terraform v1.1.6.
 
 ## Usage
 
@@ -20,6 +20,10 @@ Store the self-signed certificates in AWS Systems Manager Parameter Store when g
 $ aws ssm put-parameter --name /clientvpn/certificates/server.crt --type String --value "$(cat server.crt)"
 
 $ aws ssm put-parameter --name /clientvpn/certificates/server.key --type SecureString --value "$(cat server.key)"
+
+$ aws ssm put-parameter --name /clientvpn/certificates/client.crt --type String --value "$(cat client.crt)"
+
+$ aws ssm put-parameter --name /clientvpn/certificates/client.key --type SecureString --value "$(cat client.key)"
 
 $ aws ssm put-parameter --name /clientvpn/certificates/ca.crt --type String --value "$(cat ca.crt)"
 ```
