@@ -21,10 +21,6 @@ $ aws ssm put-parameter --name /clientvpn/certificates/server.crt --type String 
 
 $ aws ssm put-parameter --name /clientvpn/certificates/server.key --type SecureString --value "$(cat server.key)"
 
-$ aws ssm put-parameter --name /clientvpn/certificates/client.crt --type String --value "$(cat client.crt)"
-
-$ aws ssm put-parameter --name /clientvpn/certificates/client.key --type SecureString --value "$(cat client.key)"
-
 $ aws ssm put-parameter --name /clientvpn/certificates/ca.crt --type String --value "$(cat ca.crt)"
 ```
 
