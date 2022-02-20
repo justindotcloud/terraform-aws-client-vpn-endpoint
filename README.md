@@ -34,7 +34,8 @@ This is the minimum configuration needed to create an AWS Client VPN endpoint.
 
 ```hcl
 module "clientvpn" {
-  source = "git::https://github.com/justindotcloud/terraform-aws-client-vpn-endpoint.git"
+  source  = "justindotcloud/client-vpn-endpoint/aws"
+  version = "x.x.x"
 
   subnet_id = SUBNET_ID
 }
@@ -43,8 +44,9 @@ module "clientvpn" {
 You can also add your own subdomain which you can use in the `*.ovpn` configuration file later on. This way you can reuse the same `*.ovpn` configuration when you recreate an AWS Client VPN endpoint. 
 
 ```hcl
-module "clientvpn" {
-  source = "git::https://github.com/justindotcloud/terraform-aws-client-vpn-endpoint.git"
+module "client-vpn-endpoint" {
+  source  = "justindotcloud/client-vpn-endpoint/aws"
+  version = "x.x.x"
 
   subnet_id = SUBNET_ID
   zone_id   = ZONE_ID
