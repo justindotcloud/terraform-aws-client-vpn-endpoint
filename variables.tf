@@ -7,7 +7,7 @@ variable "endpoint_description" {
 variable "client_cidr_block" {
   description = "Client CIDR used for the VPN endpoint"
   type        = string
-  default     = "10.0.0.0/16" 
+  default     = "10.0.0.0/16"
 }
 
 variable "transport_protocol" {
@@ -18,7 +18,7 @@ variable "transport_protocol" {
 
 variable "dns_servers" {
   description = "DNS servers used for the VPN endpoint"
-  type        = list
+  type        = list(any)
   default     = ["8.8.8.8", "8.8.4.4"]
 }
 
@@ -83,6 +83,6 @@ variable "ssm_ca_crt" {
 
 variable "tags" {
   description = "Tags for all resources used for the VPN endpoint"
-  type        = map
+  type        = map(any)
   default     = {}
 }
