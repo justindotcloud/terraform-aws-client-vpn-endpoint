@@ -32,7 +32,7 @@ This is the minimum configuration needed to create an AWS Client VPN endpoint.
 ```hcl
 module "client-vpn-endpoint" {
   source  = "justindotcloud/client-vpn-endpoint/aws"
-  version = "0.1.0"
+  version = "0.1.1"
 
   subnet_id = SUBNET_ID
 }
@@ -43,7 +43,7 @@ You can also add your own subdomain which you can use in the `*.ovpn` configurat
 ```hcl
 module "client-vpn-endpoint" {
   source  = "justindotcloud/client-vpn-endpoint/aws"
-  version = "0.1.0"
+  version = "0.1.1"
 
   subnet_id = SUBNET_ID
   zone_id   = ZONE_ID
