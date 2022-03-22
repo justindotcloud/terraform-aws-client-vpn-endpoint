@@ -2,17 +2,19 @@
 
 Terraform module which creates a Client VPN Endpoint on AWS. This module can be used to quickly create a VPN connection to new and existing VPC's without the use of a VPN instance.
 
-By using self-signed certificates in AWS Systems Manager Parameter Store and a custom subdomain, you can easily create and destroy Client VPN endpoints while reusing the same `*.ovpn` configuration. This way you can create a Client VPN Endpoint only when needed and reduce [costs](https://aws.amazon.com/vpn/pricing/). 
-
-## Terraform versions
-
-Tested with Terraform v1.1.6.
+By using self-signed certificates in AWS Systems Manager Parameter Store and a custom subdomain, you can easily create and destroy Client VPN endpoints while reusing the same `*.ovpn` configuration. This way you can create a Client VPN Endpoint only when needed and reduce [costs](https://aws.amazon.com/vpn/pricing/).
 
 ## Usage
 
 #### Self-signed certificates
 
-Pre-genereted self-signed certificates are used to be able to reuse the same `*.ovpn` configuration. Get started by generating self-signed server and client certificates using [this guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authorization.html) from AWS. 
+Pre-genereted self-signed certificates are used to be able to reuse the same `*.ovpn` configuration.
+
+<details><summary>Guide on generating self-signed certificates</summary>
+
+Get started by generating self-signed server and client certificates using [this guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authorization.html) from AWS. 
+
+</details>
 
 Store the self-signed certificates in AWS Systems Manager Parameter Store when generated.
 
@@ -26,6 +28,7 @@ $ aws ssm put-parameter --name /clientvpn/certificates/client.crt --type String 
 $ aws ssm put-parameter --name /clientvpn/certificates/client.key --type SecureString --value "$(cat client.key)"
 
 $ aws ssm put-parameter --name /clientvpn/certificates/ca.crt --type String --value "$(cat ca.crt)"
+
 ```
 
 #### Examples
@@ -35,7 +38,7 @@ This is the minimum configuration needed to create an AWS Client VPN endpoint.
 ```hcl
 module "client-vpn-endpoint" {
   source  = "justindotcloud/client-vpn-endpoint/aws"
-  version = "x.x.x"
+  version = "0.1.0"
 
   subnet_id = SUBNET_ID
 }
@@ -46,7 +49,7 @@ You can also add your own subdomain which you can use in the `*.ovpn` configurat
 ```hcl
 module "client-vpn-endpoint" {
   source  = "justindotcloud/client-vpn-endpoint/aws"
-  version = "x.x.x"
+  version = "0.1.0"
 
   subnet_id = SUBNET_ID
   zone_id   = ZONE_ID
@@ -94,4 +97,4 @@ Add the `*.ovpn` configuration file to your prefered client and connect to VPN.
 
 ## Authors
 
-Module managed by [Justin Janson](https://github.com/justindotcloud)
+Module managed by [Justin Janson](https://github.com/justindotcloud).
